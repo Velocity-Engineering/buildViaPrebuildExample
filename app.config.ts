@@ -29,6 +29,7 @@ const config: ExpoConfig = {
   },
   plugins: [
     "./modifyResStrings.plugin.js",
+    "./modifyManifest.js",
     // "./my-config.plugin.js",
     // "./modify_app_gradle.plugin.js",
     [
@@ -39,6 +40,10 @@ const config: ExpoConfig = {
       },
     ],
   ],
+  updates: {
+    url: "https://u.expo.dev/4c0a5632-3bb1-4f93-8b6e-4735f140584d",
+    enabled: true,
+  },
 };
 
 export default () => {
