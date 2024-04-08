@@ -63,7 +63,8 @@ const myConfigPlugin = (config) => {
     const applicationTag = manifest.application[0]["$"];
     const applicationMetaData = manifest.application[0]["meta-data"];
     manifest.application[0].activity[0]["intent-filter"] = mainActivityIntent;
-
+    manifest.application[0].activity[0]["$"]["android:label"] =
+      "@string/app_name";
     Object.entries(applicationProperties).forEach(([key, value]) => {
       applicationTag[key] = value;
     });
