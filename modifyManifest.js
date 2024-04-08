@@ -1,7 +1,6 @@
 const { withAndroidManifest } = require("@expo/config-plugins");
 const { facebookActivityList } = require("./facebookActivityList");
-const { mainActivityIntents } = require("./mainActivityIntents");
-console.log(33, facebookActivityList);
+const { mainActivityIntent } = require("./mainActivityIntents");
 const permsissionList = [
   "com.google.android.gms.permission.AD_ID",
   "android.permission.POST_NOTIFICATIONS",
@@ -52,7 +51,6 @@ const applicationMetaDataValues = {
 
 const myConfigPlugin = (config) => {
   return withAndroidManifest(config, (config) => {
-    console.log(88, JSON.stringify(config.modResults.manifest));
     const manifest = config.modResults.manifest;
     manifest["uses-sdk"] = {
       $: { "tools:overrideLibrary": "com.truecaller.android.sdk" },
@@ -64,8 +62,8 @@ const myConfigPlugin = (config) => {
     });
     const applicationTag = manifest.application[0]["$"];
     const applicationMetaData = manifest.application[0]["meta-data"];
-    // console.log(applicationTag);
-    manifest.application[0].activity = mainActivityIntents;
+    manifest.application[0].activity[0]["intent-filter"] = mainActivityIntent;
+
     Object.entries(applicationProperties).forEach(([key, value]) => {
       applicationTag[key] = value;
     });
