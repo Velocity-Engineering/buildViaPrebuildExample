@@ -30,8 +30,12 @@ const config: ExpoConfig = {
   plugins: [
     "./modifyResStrings.plugin.js",
     "./modifyManifest.js",
+    "./modifyInfoPlist.plugin.js",
+    "./modifyEntitlements.plugin.js",
+    "./modifyPodfile.plugin.js",
     // "./my-config.plugin.js",
     // "./modify_app_gradle.plugin.js",
+    "expo-build-properties",
     [
       "@config-plugins/react-native-branch",
       {
@@ -44,6 +48,8 @@ const config: ExpoConfig = {
     url: "https://u.expo.dev/4c0a5632-3bb1-4f93-8b6e-4735f140584d",
     enabled: true,
   },
+
+  runtimeVersion: { policy: "appVersion" },
 };
 
 export default () => {
