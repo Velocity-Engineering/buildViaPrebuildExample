@@ -30,9 +30,9 @@ const config: ExpoConfig = {
   plugins: [
     "./modifyResStrings.plugin.js",
     "./modifyManifest.js",
-    "./modifyInfoPlist.plugin.js",
-    "./modifyEntitlements.plugin.js",
-    "./modifyPodfile.plugin.js",
+    "./plugins/ios/modifyInfoPlist.plugin.js",
+    "./plugins/ios/modifyEntitlements.plugin.js",
+    "./plugins/ios/modifyPodfile.plugin.js",
     // "./my-config.plugin.js",
     // "./modify_app_gradle.plugin.js",
     "expo-build-properties",
